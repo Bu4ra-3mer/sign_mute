@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sign_mute/core/colors.dart';
+import 'package:sign_mute/core/tools.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -8,8 +10,159 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  String selectedGendar = 'Male';
+  bool isAccepted = false;
+  bool obsureText = true;
+  final GlobalKey<FormState> loginForm = GlobalKey();
+
+  RegExp emailRegExp =
+      RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Form(
+          key: loginForm,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextFormField(
+                validator: (v) {
+                  if (v!.isEmpty) {
+                    return 'Please Enter Your Name';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                  hintText: ' Enter Your Name',
+                  prefixIcon: Icon(Icons.person),
+                ),
+              ),
+              vSpace(30),
+              TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'please enter your email';
+                  }
+                  if (!emailRegExp.hasMatch(value)) {
+                    return 'please enter valide email';
+                  }
+                  return null;
+                },
+                decoration: InputDecoration(
+                  hintText: 'Enter Your Email',
+                  border: UnderlineInputBorder(
+                    borderSide: BorderSide(color: yellowAccent),
+                  ),
+                  prefixIcon: Icon(Icons.email),
+                ),
+              ),
+              vSpace(30),
+              TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'please enter your password';
+                  }
+                  if (value.length < 8) {
+                    return 'please enter latest char 8';
+                  }
+                  return null;
+                },
+                obscureText: obsureText,
+                decoration: InputDecoration(
+                  hintText: 'Enter Your Password',
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      obsureText = !obsureText;
+                      setState(() {});
+                    },
+                    icon: Icon(
+                      obsureText ? Icons.visibility : Icons.visibility_off,
+                    ),
+                  ),
+                  prefixIcon: Icon(Icons.lock),
+                ),
+              ),
+              vSpace(30),
+              TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'please enter your password';
+                  }
+                  if (value.length < 8) {
+                    return 'please enter latest char 8';
+                  }
+                  return null;
+                },
+                obscureText: obsureText,
+                decoration: InputDecoration(
+                  hintText: 'Confirm Password',
+                  prefixIcon: Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      obsureText = !obsureText;
+                      setState(() {});
+                    },
+                    icon: Icon(
+                      obsureText ? Icons.visibility : Icons.visibility_off,
+                    ),
+                  ),
+                ),
+              ),
+              vSpace(30),
+              Row(
+                children: [
+                  Expanded(
+                    child: RadioListTile(
+                      value: 'Male',
+                      groupValue: selectedGendar,
+                      onChanged: (mohamed) {
+                        selectedGendar = mohamed!;
+                        setState(() {});
+                      },
+                      title: Text('Male'),
+                    ),
+                  ),
+                  Expanded(
+                    child: RadioListTile(
+                      value: 'Female',
+                      groupValue: selectedGendar,
+                      onChanged: (beshooo) {
+                        selectedGendar = beshooo!;
+                        setState(() {});
+                      },
+                      title: Text('Female'),
+                    ),
+                  )
+                ],
+              ),
+              vSpace(20),
+              CheckboxListTile(
+                value: isAccepted,
+                onChanged: (v) {
+                  isAccepted = v!;
+                  setState(() {});
+                },
+                controlAffinity: ListTileControlAffinity.leading,
+                title: Text('I Accept terms of use & privacy policy'),
+              ),
+              vSpace(40),
+              ElevatedButton(
+                onPressed: () {
+                  if (loginForm.currentState!.validate()) {
+                    Navigator.pop(context);
+                  }
+                },
+                child: Text(
+                  'Sign Up',
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
