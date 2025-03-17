@@ -16,8 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   bool obsureText = true;
   final GlobalKey<FormState> loginForm = GlobalKey();
 
-  RegExp emailRegExp =
-      RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                   prefixIcon: Icon(Icons.email),
                 ),
               ),
-              vSpace(40),
+              vSpace(2),
               TextFormField(
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -64,21 +62,24 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {});
                     },
                     icon: Icon(
-                        !obsureText ? Icons.visibility_off : Icons.visibility),
+                      !obsureText ? Icons.visibility_off : Icons.visibility,
+                    ),
                   ),
                 ),
               ),
-              vSpace(20),
+              vSpace(2),
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/forgotpass');
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(color: Colors.black),
                     )),
               ),
-              vSpace(50),
+              vSpace(5),
               ElevatedButton(
                 onPressed: () {
                   if (loginForm.currentState!.validate()) {
@@ -87,6 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                 },
                 child: Text('Login'),
               ),
+              vSpace(2),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/signUp');

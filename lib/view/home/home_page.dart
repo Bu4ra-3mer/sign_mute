@@ -9,39 +9,51 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            vSpace(20),
-            Image.asset(
-              Assets.assetsLogo,
-              width: 100,
-              height: 100,
-            ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('App'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Learn'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Donat'),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text('Service'),
-              onTap: () {},
-            ),
-          ],
-        ),
+      drawer: DrawerWidget(),
+    );
+  }
+}
+
+class DrawerWidget extends StatelessWidget {
+  const DrawerWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [
+          vSpace(20),
+          Image.asset(
+            Assets.assetsLogo,
+            width: 100,
+            height: 100,
+          ),
+          ListTile(
+            title: Text('Home'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('App'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Learn'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Donat'),
+            onTap: () {},
+          ),
+          ListTile(
+            title: Text('Service'),
+            onTap: () {
+              Navigator.pushNamed(context, '/service');
+            },
+          ),
+        ],
       ),
-      
     );
   }
 }

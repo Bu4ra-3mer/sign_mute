@@ -2,6 +2,18 @@
 class Assets {
   Assets._();
   
+  /// Assets for assetsConvertVideo
+  /// assets/convertVideo.png
+  static const String assetsConvertVideo = "assets/convertVideo.png";
+
+  /// Assets for assetsLangTrans
+  /// assets/langTrans.png
+  static const String assetsLangTrans = "assets/langTrans.png";
+
+  /// Assets for assetsLearnLang
+  /// assets/learnLang.png
+  static const String assetsLearnLang = "assets/learnLang.png";
+
   /// Assets for assetsLogo
   /// assets/logo.png
   static const String assetsLogo = "assets/logo.png";
@@ -17,5 +29,13 @@ class Assets {
   /// Assets for assetsOnboard3
   /// assets/onboard_3.jpg
   static const String assetsOnboard3 = "assets/onboard_3.jpg";
+
+  /// Assets for assetsOnboardLast
+  /// assets/onboard_last.jpeg
+  static const String assetsOnboardLast = "assets/onboard_last.jpeg";
+
+  /// Assets for assetsUploadVidoe
+  /// assets/uploadVidoe.png
+  static const String assetsUploadVidoe = "assets/uploadVidoe.png";
 }
 
