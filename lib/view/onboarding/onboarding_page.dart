@@ -101,7 +101,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (checkIfLastPage) {
-                        Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/login');
                       } else {
                         _controller.nextPage(
                           duration: Duration(milliseconds: 500),

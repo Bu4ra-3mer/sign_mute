@@ -40,7 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   prefixIcon: Icon(Icons.person),
                 ),
               ),
-              vSpace(30),
+              vSpace(3),
               TextFormField(
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -59,7 +59,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   prefixIcon: Icon(Icons.email),
                 ),
               ),
-              vSpace(30),
+              vSpace(3),
               TextFormField(
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -85,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   prefixIcon: Icon(Icons.lock),
                 ),
               ),
-              vSpace(30),
+              vSpace(3),
               TextFormField(
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -111,7 +111,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-              vSpace(30),
+              vSpace(3),
               Row(
                 children: [
                   Expanded(
@@ -138,7 +138,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   )
                 ],
               ),
-              vSpace(20),
+              vSpace(3),
               CheckboxListTile(
                 value: isAccepted,
                 onChanged: (v) {
@@ -148,7 +148,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 controlAffinity: ListTileControlAffinity.leading,
                 title: Text('I Accept terms of use & privacy policy'),
               ),
-              vSpace(40),
+              vSpace(4),
               ElevatedButton(
                 onPressed: () {
                   if (loginForm.currentState!.validate()) {
