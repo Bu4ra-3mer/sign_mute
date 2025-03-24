@@ -6,6 +6,10 @@ class Assets {
   /// assets/convertVideo.png
   static const String assetsConvertVideo = "assets/convertVideo.png";
 
+  /// Assets for assetsLabels
+  /// assets/labels.txt
+  static const String assetsLabels = "assets/labels.txt";
+
   /// Assets for assetsLangTrans
   /// assets/langTrans.png
   static const String assetsLangTrans = "assets/langTrans.png";
@@ -17,6 +21,10 @@ class Assets {
   /// Assets for assetsLogo
   /// assets/logo.png
   static const String assetsLogo = "assets/logo.png";
+
+  /// Assets for assetsModelUnquant
+  /// assets/modelUnquant.tflite
+  static const String assetsModelUnquant = "assets/modelUnquant.tflite";
 
   /// Assets for assetsOnboard1
   /// assets/onboard_1.jpg

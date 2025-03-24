@@ -14,7 +14,7 @@ final ThemeData globalTheme = ThemeData(
   inputDecorationTheme: InputDecorationTheme(
     focusedBorder: UnderlineInputBorder(
       borderSide: BorderSide(
-        color: yellowAccent,
+        color: redAccent,
       ),
     ),
   ),

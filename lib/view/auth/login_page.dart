@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sign_mute/core/colors.dart';
 import 'package:sign_mute/core/tools.dart';
+import 'package:sizer/sizer.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,83 +17,98 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Form(
-          key: loginForm,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFormField(
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'please enter your email';
-                  }
-                  if (!emailRegExp.hasMatch(value)) {
-                    return 'please enter valide email';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  hintText: 'Your email',
-                  prefixIcon: Icon(Icons.email),
+      backgroundColor: yellowBG,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Form(
+            key: loginForm,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                vSpace(10),
+                Image.asset(
+                  Assets.assetsLogo,
+                  width: 50.w,
                 ),
-              ),
-              vSpace(2),
-              TextFormField(
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'please enter your password';
-                  }
-                  if (value.length < 8) {
-                    return 'please enter latest char 8';
-                  }
-                  return null;
-                },
-                obscureText: obsureText,
-                decoration: InputDecoration(
-                  hintText: 'Your password',
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    onPressed: () {
-                      obsureText = !obsureText;
-                      setState(() {});
-                    },
-                    icon: Icon(
-                      !obsureText ? Icons.visibility_off : Icons.visibility,
+                vSpace(2),
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'please enter your email';
+                    }
+                    if (!emailRegExp.hasMatch(value)) {
+                      return 'please enter valide email';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Your email',
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: redAccent,
                     ),
                   ),
                 ),
-              ),
-              vSpace(2),
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/forgotpass');
-                    },
-                    child: Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.black),
-                    )),
-              ),
-              vSpace(5),
-              ElevatedButton(
-                onPressed: () {
-                  if (loginForm.currentState!.validate()) {
-                    Navigator.pushReplacementNamed(context, '/home');
-                  }
-                },
-                child: Text('Login'),
-              ),
-              vSpace(2),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/signUp');
-                },
-                child: Text('SignUp'),
-              ),
-            ],
+                vSpace(2),
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'please enter your password';
+                    }
+                    if (value.length < 8) {
+                      return 'please enter latest char 8';
+                    }
+                    return null;
+                  },
+                  obscureText: obsureText,
+                  decoration: InputDecoration(
+                    hintText: 'Your password',
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: redAccent,
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        obsureText = !obsureText;
+                        setState(() {});
+                      },
+                      icon: Icon(
+                        !obsureText ? Icons.visibility_off : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                ),
+                vSpace(2),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/forgotpass');
+                      },
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(color: Colors.black),
+                      )),
+                ),
+                vSpace(5),
+                ElevatedButton(
+                  onPressed: () {
+                    if (loginForm.currentState!.validate()) {
+                      Navigator.pushReplacementNamed(context, '/home');
+                    }
+                  },
+                  child: Text('Login'),
+                ),
+                vSpace(2),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signUp');
+                  },
+                  child: Text('SignUp'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

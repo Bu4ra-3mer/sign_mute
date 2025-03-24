@@ -36,6 +36,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   bot_toast: ^4.1.3
   sizer: ^3.0.5
+  camera: ^0.11.1
+  tflite_flutter: ^0.11.0
+  image: ^3.3.0
+  concentric_transition: ^1.0.3
+
 
 dev_dependencies:
   flutter_test:
