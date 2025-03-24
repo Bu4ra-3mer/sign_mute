@@ -37,7 +37,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 },
                 decoration: InputDecoration(
                   hintText: ' Enter Your Name',
-                  prefixIcon: Icon(Icons.person),
+                  prefixIcon: Icon(
+                    Icons.person,
+                    color: redAccent,
+                  ),
                 ),
               ),
               vSpace(30),
@@ -56,7 +59,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   border: UnderlineInputBorder(
                     borderSide: BorderSide(color: yellowAccent),
                   ),
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: redAccent,
+                  ),
                 ),
               ),
               vSpace(30),
@@ -82,7 +88,10 @@ class _SignUpPageState extends State<SignUpPage> {
                       obsureText ? Icons.visibility : Icons.visibility_off,
                     ),
                   ),
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: redAccent,
+                  ),
                 ),
               ),
               vSpace(30),
@@ -99,7 +108,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 obscureText: obsureText,
                 decoration: InputDecoration(
                   hintText: 'Confirm Password',
-                  prefixIcon: Icon(Icons.lock),
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: redAccent,
+                  ),
                   suffixIcon: IconButton(
                     onPressed: () {
                       obsureText = !obsureText;

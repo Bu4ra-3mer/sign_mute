@@ -26,14 +26,14 @@ class _LearnPageState extends State<LearnPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Sign Language Guide"),
-        backgroundColor: redAccent,
-        foregroundColor: Colors.white,
+        backgroundColor: yellowBG,
+        foregroundColor: Colors.black,
       ),
       body: Column(
         children: [
           Container(
             padding: EdgeInsets.symmetric(vertical: 10),
-            color: redAccent,
+            color: yellowBG,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -120,9 +120,9 @@ class _LearnPageState extends State<LearnPage> {
       onTap: () {},
       child: Column(
         children: [
-          Icon(Icons.circle, size: 20, color: yellowAccent),
+          Icon(Icons.circle, size: 20, color: redAccent),
           SizedBox(height: 5),
-          Text(title, style: TextStyle(color: Colors.white)),
+          Text(title),
         ],
       ),
     );
